@@ -1,32 +1,23 @@
-pipeline{
-  agent{lable 'master'}
-  tools{maven 'M3'}
-  stages{
-      stage('checkout'){
-        steps{
-         git branch: 'main' , url:'https://github.com/Nivisha01/tweet-trend-new.git'}
-         }
-       }
-      stage('Build'){
-        steps{
-         sh 'mvn compile'
-         }
-       }
-       stage('Test'){
-        steps{
-         sh 'mvn test'
-         }
+pipeline {
+    agent any
+    stages {
+        stage('Job 1') {
+            steps {
+                echo 'Executing Job 1...'
+                // Add your build commands here
+            }
         }
-        stage('Package'){
-        steps{
-         sh 'mvn package'
-         }
+        stage('Job 2') {
+            steps {
+                echo 'Executing Job 2...'
+                // Add your build commands here
+            }
         }
-        stage('Deploy'){
-        steps{
-         sh 'java-jar /var/lib/jenkins/workspace/PetClinicDeclarativePipeline/target/*.jar'
-          }
-         }
-       }
+        stage('Job 3') {
+            steps {
+                echo 'Executing Job 3...'
+                // Add your build commands here
+            }
+        }
     }
 }
